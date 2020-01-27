@@ -1,25 +1,26 @@
 ---
 layout: project
 type: project
-image: images/vacay-square.png
-title: Vacay
-permalink: projects/vacay
+image: images/att.png
+title: Attendance System
+permalink: projects/AttendanceSystem
 # All dates must be YYYY-MM-DD format!
-date: 2015-12-15
+date: 2016-06-01
 labels:
   - Javascript
-  - Meteor
-  - MongoDB
-  - GitHub
-summary: A responsive web application for travel planning that my team developed in ICS 415.
+  - PHP
+  - MYSQL
+  - Bitbucket
+summary: A responsive web application used to calculate attendance for each employeer.
 ---
 
-<img class="ui medium right floated rounded image" src="../images/vacay-home-page.png">
+<img class="ui medium right floated rounded image" src="../images/att.png">
 
-Vacay is a web application that I helped create as a team project in ICS 415, Spring 2015. The project helped me learn how to design and implement a responsive web site.
+Attendance System is a web application that I created, Spring 2016. The project helped me to learn how to design and implement a responsive web site.
 
-Vacay is implemented using [Meteor](http://meteor.com), a JavaScript application platform. Within two weeks, we created a website that implements several types of reservations including flights, hotels, and car rentals.
+Attendance System  is implemented using [Codeigniter](https://codeigniter.com/), a PHP application framework. Within two monthes, I created a website that implements several types of reservations including technical reports, hr reports, and more.
 
-In this project I gained experience with full-stack web application design and associated technologies, including [MongoDB](http://mongodb.com) for database storage, the [Twitter Bootstrap](http://getbootstrap.com/) CSS Framework for the user interface, and Javascript for both client and server-side programming. 
+In this project I gained experience with full-stack web application design and associated technologies, including [MYSQL](https://www.mysql.com/) for database storage, the [Twitter Bootstrap](http://getbootstrap.com/) CSS Framework for the user interface, and Javascript for both client and server-side programming.
  
-Source: <a href="https://github.com/theVacay/vacay"><i class="large github icon"></i>theVacay/vacay</a>
+ <hr>
+Source: <a href="https://bitbucket.org/poode/tedata/src/master/"><i class="large bitbucket icon"></i>Attendance System</a>

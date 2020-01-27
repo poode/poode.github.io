@@ -1,52 +1,52 @@
 {
   "basics": {
-    "name": "Molly Maluhia",
-    "label": "Student",
-    "picture": "https://techfolios.github.io/template/images/molly.png",
-    "email": "molly@hawaii.edu",
-    "phone": "808-333-4444",
-    "website": "https://mmaluhia.github.io",
-    "summary": "I am studying for a B.S. in Computer Science in the Department of Information and Computer Sciences at the University of Hawaii. I expect to graduate in Spring, 2020.",
+    "name": "Abdulazeem M. M.",
+    "label": "Software Engineer",
+    "picture": "https://avatars1.githubusercontent.com/u/275428",
+    "email": "engabdulazeem@gmail.com",
+    "phone": "+201004395287",
+    "website": "https://poode.github.io",
+    "summary": "I am software engineer (Blockchain Developer as well) and I have the ability to learn anything new in our Development world.",
     "location": {
       "address": "",
-      "postalCode": "96822",
-      "city": "Honolulu",
-      "countryCode": "USA",
-      "region": "Hawaii"
+      "postalCode": "11777",
+      "city": "Cairo",
+      "countryCode": "Egypt",
+      "region": "Ain Shams Al Sharkya"
     },
     "profiles": [
       {
         "network": "github",
-        "username": "mmaluhia",
-        "url": "http://github.com/changeme"
+        "username": "poode",
+        "url": "http://github.com/poode"
       },
       {
         "network": "linkedin",
-        "username": "mollymaluhia",
-        "url": "http://linkedin.com/in/changeme"
+        "username": "abdelazeemmouneer",
+        "url": "http://linkedin.com/in/abdelazeemmouneer"
       },
       {
         "network": "twitter",
-        "username": "mollymal",
-        "url": "http://twitter.com/changeme"
+        "username": "poode_10",
+        "url": "http://twitter.com/poode_10"
       },
       {
         "network": "instagram",
-        "username": "molly",
-        "url": "http://instagram.com/changeme"
+        "username": "abdul_azeem_mouneer",
+        "url": "http://instagram.com/abdul_azeem_mouneer"
       }
     ]
   },
   "interests": [
     {
-      "name": "internet of things",
+      "name": "blockchain",
       "keywords": [
-        "Arduino",
-        "TI MSP430"
+        "fabric",
+        "ethereum"
       ]
     },
     {
-      "name": "data mining",
+      "name": "Software Engineering",
       "keywords": [
       ]
     },
@@ -61,32 +61,39 @@
       "name": "Languages and Frameworks",
       "level": "",
       "keywords": [
-        "C",
-        "C++",
-        "Java",
-        "Javascript",
-        "Assembly",
-        "Common Lisp"
+        "nodejs",
+        "c++",
+        "php",
+        "expressjs",
+        "laravel"
       ]
     },
     {
       "name": "Toolsets/OS",
       "level": "",
       "keywords": [
-        "MacOS",
+        "windows",
         "Ubuntu",
         "Git/GitHub",
-        "g++",
-        "TI LaunchPad"
+        "vscode"
+      ]
+    },
+    {
+      "name": "Cloud & Deployment",
+      "level": "",
+      "keywords": [
+        "AWS",
+        "heroku",
+        "google"
       ]
     }
   ],
   "education": [
     {
-      "institution": "University of Hawaii, Honolulu, HI",
-      "area": "Computer Science (expected Spring, 2018)",
+      "institution": "Helwan University",
+      "area": "Telecommunications and Electronics 2011",
       "studyType": "B.S.",
-      "startDate": "2013-09-01",
+      "startDate": "2011-09-01",
       "endDate": "Present",
       "gpa": "",
       "courses": [
@@ -95,69 +102,40 @@
   ],
   "work": [
     {
-      "company": "UH Manoa Board of Publications",
-      "position": "Web Developer",
+      "company": "Freelance",
+      "position": "Fullstack Developer",
       "website": "",
-      "startDate": "2015-08-01",
+      "startDate": "2015-11-01",
       "endDate": "Present",
-      "summary": "Head of online presence for Ka Leo",
+      "summary": "Freelance Developer",
       "highlights": [
-        "Maintain, update, and oversee official college newspaper website",
-        "Drive, design and build student-community projects for UH Manoa"
+        "analizing customers problems and finding solutions for their issues",
+        "Drive, design and build projects to solve customers problems"
       ]
     },
     {
-      "company": "UH Information Technology Services",
-      "position": "Help Desk Consultant",
-      "website": "http://www.hawaii.edu/its/",
-      "startDate": "2015-01-01",
-      "endDate": "2016-03-15",
+      "company": "04Egypt",
+      "position": "NodeJs Developer",
+      "website": "https://www.04egypt.com/",
+      "startDate": "2018-01-01",
+      "endDate": "2018-12-31",
       "summary": "",
       "highlights": [
-        "Troubleshoot software, hardware and networking issues over the phone",
-        "Answer phone and email responses to the ITS Help Desk"
-      ]
-    }
-  ],
-  "volunteer": [
-    {
-      "organization": "Center for Renewable Energy and Island Sustainability",
-      "website": "http://manoa.hawaii.edu/reis",
-      "position": "Software Developer",
-      "startDate": "2016-01-01",
-      "endDate": "Present",
-      "summary": "Lead developer for weather sensing project",
-      "highlights": [
-        "Design firmware for distributed weather sensor network",
-        "Maintain custom data collection and storage infrastructure"
+        "developing a solution based on AI and bots",
+        "I was technical leader for short time"
       ]
     },
     {
-      "organization": "",
-      "website": "",
-      "position": "Professional organization involvement",
-      "startDate": "",
-      "endDate": "",
+      "company": "Valoro",
+      "position": "Software Engineer & Blockchain Developer",
+      "website": "http://valoro.xyz/",
+      "startDate": "2019-01-01",
+      "endDate": "Present",
       "summary": "",
       "highlights": [
-        "Chair, ACM Manoa, 2016-Present",
-        "Member, IEEE Student Branch, 2014-Present",
-        "Webmaster/IT Officer, IEEE Student Branch, UH Manoa, 2012-2013"
+        "developing a solution as we are software housing",
+        "I am technical leader for short time"
       ]
-    }
-  ],
-  "awards": [
-    {
-      "title": "B+ Scholarship",
-      "date": "2013-Present",
-      "awarder": "State of Hawaii",
-      "summary": "Scholarships awarded to incoming freshmen and continuing students who complete a rigorous high school curriculum with a minimum overall GPA of 3.0 at a Hawai'i public school."
-    },
-    {
-      "title": "First place",
-      "date": "2015",
-      "awarder": "University of Hawaii Micromouse Competition",
-      "summary": "My team won first place in 2015.  See my portfolio site for more details."
     }
   ],
   "references": [
