@@ -3,14 +3,15 @@ layout: project
 type: project
 image: images/JS-1.png
 title: Jail System
-permalink: projects/JailSystem
+permalink: projects/jail-system
 # All dates must be YYYY-MM-DD format!
 date: 2018-11-02
 labels:
-  - nodejs
-  - handlerbar
+  - Nodejs
+  - Expressjs
+  - Socket.io
+  - Handlerbar
   - MYSQL
-  - mysql
 summary: I developed a project to archive accusers data into a computer system and extracting reports from the database.
 ---
 

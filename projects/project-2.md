@@ -3,12 +3,13 @@ layout: project
 type: project
 image: images/att.png
 title: Attendance System
-permalink: projects/AttendanceSystem
+permalink: projects/attendance-system
 # All dates must be YYYY-MM-DD format!
 date: 2016-06-01
 labels:
   - Javascript
   - PHP
+  - Codeigniter
   - MYSQL
   - Bitbucket
 summary: A responsive web application used to calculate attendance for each employeer.

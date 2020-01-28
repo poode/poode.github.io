@@ -61,11 +61,13 @@
       "name": "Languages and Frameworks",
       "level": "",
       "keywords": [
-        "nodejs",
-        "c++",
-        "php",
-        "expressjs",
-        "laravel"
+        "Nodejs",
+        "JavaScript",
+        "Expressjs",
+        "PHP",
+        "Laravel",
+        "C++",
+        "Ruby"
       ]
     },
     {
@@ -85,6 +87,27 @@
         "AWS",
         "heroku",
         "google"
+      ]
+    },
+    {
+      "name": "Development Skills",
+      "level": "",
+      "keywords": [
+        "Language Agnostic Developer (Learn What I want for the Application needs)",
+        "Strong knowledge of OOP",
+        "MEAN (MEVN) Stack Development",
+        "Strong knowledge of REST Services and its standards",
+        "Developing APIs with GraphQL",
+        "Database Design (MongoDb, MySQL, PostgreSQL)",
+        "Blockchain basics, and fundamentals (Development using Hyperledger Fabric, and NodeJS)",
+        "Git and its usage during developing any kind of applications",
+        "Dealing with Linux and familiar like windows",
+        "Dealing and developing serverless applications on AWS codestar service",
+        "Dealing with AWS services(like S3, Lambda function, and making serverless application)",
+        "Have a little knowledge about AI (Looking forward for it)",
+        "Have knowledge about C++, and C# programming languages",
+        "Have knowledge about Bash",
+        "Have knowledge about kubernetes"
       ]
     }
   ],
