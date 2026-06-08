@@ -1,0 +1,19 @@
+---
+import { useTranslations } from '../i18n/utils';
+import { profile } from '../data/profile';
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  year: number;
+}
+const { lang, year } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<footer class="border-t border-neutral-100 py-10 dark:border-neutral-900">
+  <div class="container-content flex flex-col items-center justify-between gap-3 text-sm text-neutral-500 sm:flex-row dark:text-neutral-500">
+    <p>© {year} {profile.name[lang]}. {t('footer.rights')}</p>
+    <p>{t('footer.built')}</p>
+  </div>
+</footer>

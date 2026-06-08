@@ -1,0 +1,138 @@
+---
+import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions';
+import { dir, useTranslations } from '../i18n/utils';
+import { profile } from '../data/profile';
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const direction = dir(lang);
+
+const title = `${profile.name[lang]} — ${profile.title[lang]}`;
+const description = profile.tagline[lang];
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL('/og.png', Astro.site).href;
+---
+
+<!doctype html>
+<html lang={lang} dir={direction}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonical} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={profile.name[lang]} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content={lang === 'ar' ? 'ar_EG' : 'en_US'} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Alternate languages -->
+    <link rel="alternate" hreflang="en" href={new URL('/', Astro.site).href} />
+    <link rel="alternate" hreflang="ar" href={new URL('/ar/', Astro.site).href} />
+    <link rel="alternate" hreflang="x-default" href={new URL('/', Astro.site).href} />
+
+    <!-- Theme: apply before paint on load AND after each view-transition swap
+         (language toggle navigates, which swaps <html> and would otherwise drop the class). -->
+    <script is:inline>
+      (() => {
+        const applyTheme = () => {
+          const stored = localStorage.getItem('theme');
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          document.documentElement.classList.toggle('dark', stored === 'dark' || (!stored && prefersDark));
+        };
+        applyTheme();
+        document.addEventListener('astro:after-swap', applyTheme);
+      })();
+    </script>
+
+    <ClientRouter />
+  </head>
+  <body>
+    <div
+      id="scroll-progress"
+      class="fixed inset-x-0 top-0 z-[60] h-0.5 origin-left scale-x-0 bg-gradient-to-r from-accent to-violet-500 transition-transform duration-150 ease-out rtl:origin-right"
+    >
+    </div>
+
+    <slot />
+
+    <!-- Reveal-on-scroll, re-bound after each view transition -->
+    <script>
+      function bindReveals() {
+        const els = document.querySelectorAll('.reveal:not(.is-visible)');
+        if (!els.length) return;
+        if (!('IntersectionObserver' in window)) {
+          els.forEach((el) => el.classList.add('is-visible'));
+          return;
+        }
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { rootMargin: '0px 0px -10% 0px' }
+        );
+        els.forEach((el) => io.observe(el));
+      }
+      bindReveals();
+      document.addEventListener('astro:page-load', bindReveals);
+    </script>
+
+    <!-- Cursor-following spotlight on [data-spotlight] cards -->
+    <script>
+      function bindSpotlight() {
+        document.querySelectorAll('[data-spotlight]').forEach((el) => {
+          const node = el as HTMLElement;
+          if (node.dataset.spotBound) return;
+          node.dataset.spotBound = 'true';
+          node.addEventListener('pointermove', (e) => {
+            const r = node.getBoundingClientRect();
+            node.style.setProperty('--mx', `${((e.clientX - r.left) / r.width) * 100}%`);
+            node.style.setProperty('--my', `${((e.clientY - r.top) / r.height) * 100}%`);
+          });
+        });
+      }
+      bindSpotlight();
+      document.addEventListener('astro:page-load', bindSpotlight);
+    </script>
+
+    <!-- Scroll progress indicator -->
+    <script>
+      function updateProgress() {
+        const bar = document.getElementById('scroll-progress');
+        if (!bar) return;
+        const h = document.documentElement;
+        const max = h.scrollHeight - h.clientHeight;
+        const ratio = max > 0 ? h.scrollTop / max : 0;
+        bar.style.transform = `scaleX(${ratio})`;
+      }
+      window.addEventListener('scroll', updateProgress, { passive: true });
+      window.addEventListener('resize', updateProgress);
+      updateProgress();
+      document.addEventListener('astro:page-load', updateProgress);
+    </script>
+  </body>
+</html>

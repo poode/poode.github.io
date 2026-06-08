@@ -1,0 +1,26 @@
+---
+import { useTranslations } from '../i18n/utils';
+import { profile } from '../data/profile';
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const paragraphs = profile.about[lang];
+---
+
+<section id="about" class="border-t border-neutral-100 py-20 sm:py-24 dark:border-neutral-900">
+  <div class="container-content">
+    <div class="mx-auto max-w-3xl">
+      <h2 class="reveal section-heading">{t('about.heading')}</h2>
+      <div class="reveal mt-6 space-y-5 text-base leading-relaxed text-neutral-600 sm:text-lg dark:text-neutral-400">
+        {paragraphs.map((p) => <p>{p}</p>)}
+      </div>
+      <p class="reveal mt-6 text-sm text-neutral-500 dark:text-neutral-500">
+        {profile.location[lang]}
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,53 @@
+---
+import Icon from './Icon.astro';
+import { useTranslations } from '../i18n/utils';
+import { profile } from '../data/profile';
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section id="contact" class="border-t border-neutral-100 py-20 sm:py-28 dark:border-neutral-900">
+  <div class="container-content">
+    <div
+      data-spotlight
+      class="reveal reveal-scale spotlight mx-auto max-w-2xl rounded-3xl border border-neutral-200 bg-gradient-to-b from-neutral-50 to-white p-10 text-center transition-colors duration-300 hover:border-accent/40 dark:border-neutral-800 dark:from-neutral-900/60 dark:to-neutral-950"
+    >
+      <h2 class="section-heading">{t('contact.heading')}</h2>
+      <p class="mx-auto mt-4 max-w-xl text-base leading-relaxed text-neutral-600 dark:text-neutral-400">
+        {t('contact.body')}
+      </p>
+
+      <a
+        href={`mailto:${profile.email}`}
+        class="mt-8 inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-accent-fg shadow-lg shadow-accent/25 transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent-600 hover:shadow-xl hover:shadow-accent/30"
+      >
+        <Icon name="mail" class="h-5 w-5" />
+        {t('contact.email')}
+      </a>
+
+      <div class="mt-8 flex items-center justify-center gap-5">
+        {
+          profile.socials
+            .filter((s) => s.icon !== 'mail')
+            .map((s) => (
+              <a
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={s.label}
+                title={s.label}
+                class="text-neutral-500 transition-all duration-300 hover:-translate-y-1 hover:scale-110 hover:text-accent dark:text-neutral-500 dark:hover:text-accent-400"
+              >
+                <Icon name={s.icon} class="h-5 w-5" />
+              </a>
+            ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

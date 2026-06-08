@@ -1,0 +1,21 @@
+---
+import Icon from './Icon.astro';
+import { useTranslations, alternateLangPath } from '../i18n/utils';
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const href = alternateLangPath(Astro.url, lang);
+---
+
+<a
+  href={href}
+  hreflang={lang === 'ar' ? 'en' : 'ar'}
+  class="inline-flex h-9 items-center gap-1.5 rounded-lg border border-neutral-200 px-3 text-sm font-medium text-neutral-600 transition hover:bg-neutral-100 hover:text-neutral-900 dark:border-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-white"
+>
+  <Icon name="globe" class="h-4 w-4" />
+  <span>{t('nav.toggleLang')}</span>
+</a>

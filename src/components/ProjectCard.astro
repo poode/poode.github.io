@@ -1,0 +1,86 @@
+---
+import Icon from './Icon.astro';
+import { useTranslations } from '../i18n/utils';
+import { statusKey, type Project } from '../data/projects';
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  project: Project;
+  lang: Lang;
+  index?: number;
+}
+const { project, lang, index = 0 } = Astro.props;
+const t = useTranslations(lang);
+const delay = (index % 3) * 90;
+
+const statusStyles: Record<string, string> = {
+  production: 'bg-emerald-50 text-emerald-700 ring-emerald-600/20 dark:bg-emerald-500/10 dark:text-emerald-400 dark:ring-emerald-400/20',
+  prerelease: 'bg-teal-50 text-teal-700 ring-teal-600/20 dark:bg-teal-500/10 dark:text-teal-400 dark:ring-teal-400/20',
+  mvp: 'bg-sky-50 text-sky-700 ring-sky-600/20 dark:bg-sky-500/10 dark:text-sky-400 dark:ring-sky-400/20',
+  functional: 'bg-violet-50 text-violet-700 ring-violet-600/20 dark:bg-violet-500/10 dark:text-violet-400 dark:ring-violet-400/20',
+  wip: 'bg-amber-50 text-amber-700 ring-amber-600/20 dark:bg-amber-500/10 dark:text-amber-400 dark:ring-amber-400/20',
+  boilerplate: 'bg-neutral-100 text-neutral-600 ring-neutral-500/20 dark:bg-neutral-800 dark:text-neutral-400 dark:ring-neutral-400/20',
+};
+---
+
+<article
+  data-spotlight
+  style={`--reveal-delay: ${delay}ms`}
+  class="reveal reveal-scale spotlight group flex h-full flex-col rounded-2xl border border-neutral-200 bg-white/80 p-6 backdrop-blur transition-all duration-300 hover:-translate-y-1.5 hover:border-accent/40 hover:shadow-xl hover:shadow-accent/10 dark:border-neutral-800 dark:bg-neutral-900/50 dark:hover:border-accent/40"
+>
+  {
+    project.role === 'contributor' && (
+      <span class="mb-2 inline-flex items-center gap-1 text-[11px] font-semibold uppercase tracking-wider text-accent dark:text-accent-400">
+        <Icon name="users" class="h-3.5 w-3.5" />
+        {t('projects.role.contributor')}
+      </span>
+    )
+  }
+  <div class="flex items-start justify-between gap-3">
+    <h3 class="text-lg font-semibold tracking-tight text-neutral-900 transition-colors duration-300 group-hover:text-accent dark:text-white dark:group-hover:text-accent-400">
+      {project.name[lang]}
+    </h3>
+    <span
+      class={`shrink-0 rounded-full px-2.5 py-0.5 text-xs font-medium ring-1 ring-inset ${statusStyles[project.status]}`}
+    >
+      {t(statusKey[project.status])}
+    </span>
+  </div>
+
+  <p class="mt-3 flex-1 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
+    {project.summary[lang]}
+  </p>
+
+  <ul class="mt-4 flex flex-wrap gap-1.5">
+    {project.tags.map((tag) => <li class="chip">{tag}</li>)}
+  </ul>
+
+  {
+    (project.repo || project.live) && (
+      <div class="mt-5 flex items-center gap-4 border-t border-neutral-100 pt-4 dark:border-neutral-800">
+        {project.repo && (
+          <a
+            href={project.repo}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 text-sm font-medium text-neutral-600 transition hover:text-accent dark:text-neutral-400"
+          >
+            <Icon name="code" class="h-4 w-4" />
+            {t('projects.viewCode')}
+          </a>
+        )}
+        {project.live && (
+          <a
+            href={project.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 text-sm font-medium text-neutral-600 transition hover:text-accent dark:text-neutral-400"
+          >
+            <Icon name="external" class="h-4 w-4" />
+            {t('projects.viewLive')}
+          </a>
+        )}
+      </div>
+    )
+  }
+</article>

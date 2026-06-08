@@ -1,0 +1,157 @@
+@import '@fontsource-variable/inter';
+@import '@fontsource/ibm-plex-sans-arabic/400.css';
+@import '@fontsource/ibm-plex-sans-arabic/500.css';
+@import '@fontsource/ibm-plex-sans-arabic/600.css';
+@import '@fontsource/ibm-plex-sans-arabic/700.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+  :root.dark {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Account for the sticky header when jumping to anchors. */
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-white text-neutral-800 antialiased dark:bg-neutral-950 dark:text-neutral-200;
+    /* Subtle dotted texture that fades behind content. */
+    background-image: radial-gradient(theme('colors.neutral.200') 1px, transparent 1px);
+    background-size: 28px 28px;
+    background-attachment: fixed;
+  }
+  .dark body {
+    background-image: radial-gradient(theme('colors.neutral.800/0.6') 1px, transparent 1px);
+  }
+
+  /* Arabic content uses an Arabic-aware face. */
+  :lang(ar),
+  [dir='rtl'] {
+    @apply font-arabic;
+  }
+
+  ::selection {
+    @apply bg-accent/20;
+  }
+}
+
+@layer components {
+  .container-content {
+    @apply mx-auto w-full max-w-content px-5 sm:px-8;
+  }
+
+  .section-heading {
+    @apply text-2xl font-semibold tracking-tight text-neutral-900 sm:text-3xl dark:text-white;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full border border-neutral-200 bg-neutral-50 px-2.5 py-0.5 text-xs font-medium text-neutral-600 transition-colors duration-200 hover:border-accent/40 hover:bg-accent/5 hover:text-accent dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-400 dark:hover:border-accent/40 dark:hover:text-accent-400;
+  }
+
+  /* Animated multi-stop gradient text. */
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      110deg,
+      theme('colors.neutral.900'),
+      theme('colors.accent.600'),
+      theme('colors.violet.500'),
+      theme('colors.neutral.900')
+    );
+    background-size: 200% auto;
+  }
+  .dark .gradient-text {
+    background-image: linear-gradient(
+      110deg,
+      theme('colors.white'),
+      theme('colors.accent.400'),
+      theme('colors.violet.400'),
+      theme('colors.white')
+    );
+  }
+
+  /* Animated underline for nav links. */
+  .nav-link {
+    @apply relative rounded-md px-3 py-2 text-sm font-medium text-neutral-600 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white;
+  }
+  .nav-link::after {
+    content: '';
+    @apply absolute inset-x-3 -bottom-px h-px origin-center scale-x-0 bg-accent transition-transform duration-300;
+  }
+  .nav-link:hover::after {
+    @apply scale-x-100;
+  }
+
+  /* Cursor-following spotlight; position fed by --mx/--my from JS. */
+  .spotlight {
+    position: relative;
+    isolation: isolate;
+  }
+  .spotlight::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    background: radial-gradient(
+      22rem circle at var(--mx, 50%) var(--my, 50%),
+      theme('colors.accent.500/0.10'),
+      transparent 45%
+    );
+  }
+  .spotlight:hover::before {
+    opacity: 1;
+  }
+}
+
+/* Reveal-on-scroll: hidden until the IntersectionObserver adds .is-visible. */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+  }
+  .reveal-scale {
+    transform: translateY(20px) scale(0.96);
+  }
+  .reveal-left {
+    transform: translateX(-28px);
+  }
+  .reveal-right {
+    transform: translateX(28px);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+
+  .animate-gradient-x {
+    animation: gradient-x 6s ease infinite;
+  }
+}
+
+/* Honor reduced-motion: kill the decorative loops. */
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-float-slow,
+  .animate-aurora,
+  .animate-gradient-x,
+  .animate-shimmer {
+    animation: none !important;
+  }
+}
