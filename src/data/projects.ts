@@ -56,6 +56,17 @@ export const projects: Project[] = [
     },
     tags: ['NestJS', 'React', 'PWA', 'SQLite', 'Prisma', 'LiteRT-LM'],
   },
+  {
+    slug: 'smart-teacher',
+    group: 'ai',
+    status: 'wip',
+    name: { en: 'Smart Teacher', ar: 'المعلم الذكي' },
+    summary: {
+      en: 'An offline-first learning app for Egyptian primary students (grades 1–6): AI pre-generates the curriculum — lessons, quizzes, study plans, audio pronunciation and diagrams — once on a dev machine, and the app ships it bundled with zero runtime cloud, accounts or ads.',
+      ar: 'تطبيق تعليمي يعمل دون اتصال لطلاب المرحلة الابتدائية في مصر (الصفوف ١–٦): يولّد الذكاء الاصطناعي المنهج مسبقًا — شرح الدروس والاختبارات وخطط المذاكرة والنطق الصوتي والرسوم — مرة واحدة على جهاز المطوِّر، ويُحزَم داخل التطبيق ليعمل دون أي خادم أو حسابات أو إعلانات.',
+    },
+    tags: ['Flutter', 'Python', 'Riverpod', 'Drift/SQLite', 'AI pipeline', 'Offline-first'],
+  },
 
   // ── Business & ERP systems ─────────────────────────────────────────────
   {
@@ -91,6 +102,17 @@ export const projects: Project[] = [
     },
     tags: ['Express', 'MySQL', 'Sequelize', 'Socket.io', 'Handlebars', 'Docker'],
   },
+  {
+    slug: 'markazpro',
+    group: 'erp',
+    status: 'production',
+    name: { en: 'MarkazPro — Tutoring-Center Manager', ar: 'مركز برو — إدارة السناتر التعليمية' },
+    summary: {
+      en: 'A 100% offline desktop app for Egyptian tutoring centers: students, teachers, groups, attendance, payments with installments and per-lesson billing, expenses, PDF reports, and a dashboard with profit and rule-based insights — fully bilingual (AR/EN) with device licensing.',
+      ar: 'تطبيق سطح مكتب يعمل دون اتصال بالكامل للسناتر التعليمية في مصر: الطلاب والمدرّسون والمجموعات والحضور والمدفوعات بالتقسيط والدفع بالحصة والمصروفات وتقارير PDF، ولوحة تحكّم تعرض صافي الربح ورؤى ذكية قائمة على القواعد — ثنائي اللغة بالكامل مع ترخيص مرتبط بالجهاز.',
+    },
+    tags: ['.NET 8', 'Avalonia UI', 'C#', 'SQLite', 'Dapper', 'Device licensing'],
+  },
 
   // ── Products & infrastructure ──────────────────────────────────────────
   {
@@ -121,10 +143,21 @@ export const projects: Project[] = [
     status: 'boilerplate',
     name: { en: 'readyServer — Express Boilerplate', ar: 'readyServer — قالب Express جاهز' },
     summary: {
-      en: 'A reusable, production-grade Express boilerplate with a clean layered architecture, switchable MongoDB/MySQL persistence, GraphQL, JWT auth and a full security/validation/logging middleware stack.',
-      ar: 'قالب Express قابل لإعادة الاستخدام وبجودة إنتاجية، ببنية طبقية نظيفة، وتخزين قابل للتبديل بين MongoDB و MySQL، و GraphQL، ومصادقة JWT، وطبقة وسائط كاملة للأمان والتحقق والتسجيل.',
+      en: 'A reusable, production-grade Express + GraphQL boilerplate with a clean layered architecture (Route → Controller → Service → Repository), switchable MongoDB/MySQL persistence, JWT auth, Socket.io, i18n, fail-fast env validation and a full security/validation/logging middleware stack.',
+      ar: 'قالب Express + GraphQL قابل لإعادة الاستخدام وبجودة إنتاجية، ببنية طبقية نظيفة (Route → Controller → Service → Repository)، وتخزين قابل للتبديل بين MongoDB و MySQL، ومصادقة JWT، و Socket.io، وتعدّد لغات، وتحقّق صارم من متغيّرات البيئة، وطبقة وسائط كاملة للأمان والتحقق والتسجيل.',
     },
-    tags: ['Express', 'GraphQL', 'Apollo', 'Mongoose', 'Sequelize', 'JWT', 'Docker'],
+    tags: ['Express', 'GraphQL', 'Apollo', 'Mongoose', 'Sequelize', 'Socket.io', 'JWT', 'Docker'],
+  },
+  {
+    slug: 'offline-drive-flutter',
+    group: 'products',
+    status: 'boilerplate',
+    name: { en: 'Offline-Drive Flutter Boilerplate', ar: 'قالب Flutter يعمل دون اتصال' },
+    summary: {
+      en: 'A domain-agnostic architecture kit for offline-first Flutter apps with no backend: content ships as JSON seeded into local SQLite, optional asset packs download once from a free Google Drive folder, the app self-updates via a sideloaded APK manifest, and paid apps can sit behind an Ed25519 device-bound offline license.',
+      ar: 'حزمة معمارية عامة لتطبيقات Flutter تعمل دون اتصال وبدون خادم: يُشحن المحتوى كـ JSON ويُزرع في قاعدة SQLite محلية، وتُنزَّل حزم الأصول الاختيارية مرة واحدة من مجلد Google Drive مجاني، ويُحدّث التطبيق نفسه عبر بيان APK جانبي، ويمكن حماية التطبيقات المدفوعة بترخيص Ed25519 مرتبط بالجهاز يعمل دون اتصال.',
+    },
+    tags: ['Flutter', 'SQLite', 'Google Drive', 'Ed25519', 'Self-update', 'Offline-first'],
   },
 
   // ── Contributions (worked on as a contributor) ─────────────────────────
